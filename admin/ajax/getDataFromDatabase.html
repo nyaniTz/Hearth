@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="input-field-container user-search-container">
+        <input oninput="fetchUsers(this)" type="text" autocomplete="off" class="user-search" placeholder="Patient Name">
+        <div class="list-of-users">
+        </div>
+    </div>
+
+    <style>
+        *{
+            margin: 0 0;
+            padding: 0 0;
+            font-family: Avenir Next, Helvetica, Arial, sans-serif;
+        }
+
+        .input-field-container{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 300px;
+        }
+
+        .user-search{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 1em 2em;
+            border-radius: 10px;
+            border: 2px solid rgb(76, 135, 76);
+            color: rgb(76, 135, 76);
+            outline: none;
+        }
+
+        .user-search::placeholder{
+            color: rgba(76, 135, 76, 0.7);
+        }
+
+        .list-of-users{
+            width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: absolute;
+            top: calc( 100% + 10px );
+            border-radius: 10px;
+            border: 1px solid rgb(173, 173, 173);
+        }
+
+        .user-item{
+            cursor: pointer;
+            box-sizing: border-box;
+            min-width: 100%;
+            position: relative;
+            padding: 0.8em 2em;
+            font-size: 0.8em;
+            color: rgba(76, 135, 76, 0.7);
+            font-weight: 600;
+            border-bottom: 1px solid rgb(173, 173, 173);
+            transition: 0.3s;
+        }
+
+        .user-item:last-child{ border: none; }
+
+        .user-item:hover{
+            color: white;
+            background: rgba(76, 135, 76, 0.7);
+        }
+    </style>
+
+    <script>
+
+        let listOfUsersContainer = document.querySelector(".list-of-users");
+        listOfUsersContainer.style.display = 'none';
+
+        function fetchUsers(inputElement) {
+
+            if(inputElement.value != ""){
+                let searchSequence = "" + inputElement.value;
+                let params = `Name=${searchSequence}`;
+                let xhr = new XMLHttpRequest();
+
+                xhr.open("POST", "fetchPatientName.php", true);
+
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                xhr.onload = function(){
+                    let users;
+                    if( this.status == 200 ){
+                        users = JSON.parse(this.responseText);
+
+                        if(users.length != 0) listAvailableUsers(users);
+                        else listOfUsersContainer.style.display = 'none';
+                    }
+                } 
+                xhr.send(params);
+            }
+            else{ listOfUsersContainer.style.display = 'none'; }
+        
+        }
+
+        function fetchUser(id) {
+
+            let params = `id=${id}`;
+            let xhr = new XMLHttpRequest();
+
+            xhr.open("POST", "fetchPatientDetails.php", true);
+
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            xhr.onload = function(){
+                if( this.status == 200 ){
+                    let userDetails = JSON.parse(this.responseText);
+
+                    if(userDetails.length == 0) throw new Error('userDetails Came Empty');
+                    else console.log(userDetails);
+
+                    return userDetails;
+                }
+            } 
+
+            xhr.send(params);
+        }
+
+        function listAvailableUsers(array){
+            let usersHTML = ``;
+            array.forEach( object => usersHTML += `<div class="user-item" onclick="setName(this)" data-name="${object['Name']}" data-id=${object['ID']}>${object['Name']}</div>` );
+            listOfUsersContainer.innerHTML = usersHTML;
+            listOfUsersContainer.style.display = 'block';
+        }
+
+        function setName(e){
+
+            let person = {
+                id: e.getAttribute('data-id'),
+                name: e.getAttribute('data-name'),
+            }
+
+            let userSearch = document.querySelector(".user-search");
+            userSearch.value = person.name;
+            listOfUsersContainer.style.display = "none";
+
+            // fetch user details
+
+            let selectedPatient = fetchUser(person.id);
+
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+table.customTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #0A2558;
+    background: #0A255810;
+    border-radius: 10px;
+    overflow: hidden;
+    place-self: center;
+  }
+  
+   table.customTable th, table.customTable tr {
+    border-width: 2px;
+    border-color: #0A2558;
+    border-style: solid;
+    padding: 5px;
+    height: 70px;
+    transition: 0.5s;
+  }
+
+  table.customTable td {
+    text-align: center;
+    color: #0A2558;
+  }
+  
+  table.customTable thead {
+    color: white;
+    background-color: #0A2558;
+  }
+
+  table.customTable tbody tr:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    background: #0A255830;
+    transition: 0.5s;
+  }
+
+  @media screen and (max-width:1500px){
+    .home-content { padding: 100px; }
+  }  
+
+  @media screen and (max-width:1000px){
+    .home-content { padding: 100px 50px; }
+  }  

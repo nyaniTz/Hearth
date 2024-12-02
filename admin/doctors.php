@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Doctors</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/table.css">
+
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="js/script.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+
+<body>
+  <?php include "components/sidebar.php" ?>
+  <section class="home-section">
+  <?php include "components/navigation.php" ?>
+
+    <div class="home-content">
+        <h1 class="home-content-heading">Doctors</h1>
+        
+        <table class="customTable">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>License Number</th>
+                    <th>Gender</th>
+                    <th>Assigned Patients</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Emily</td>
+                    <td>White</td>
+                    <td>DOC334455</td>
+                    <td>Female</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>Jeremy</td>
+                    <td>Tank</td>
+                    <td>DOC552099</td>
+                    <td>Male</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>David</td>
+                    <td>Paul</td>
+                    <td>DOC238177</td>
+                    <td>Male</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Simon</td>
+                    <td>Tom</td>
+                    <td>DOC342355</td>
+                    <td>Male</td>
+                    <td>8</td>
+                </tr>
+            </tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>

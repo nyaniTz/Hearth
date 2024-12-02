@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get City Name from Coordinates</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			const apiKey = "671df62777b746a780050a726b5af2ea";
+
+			$("#location-form").submit(function(event) {
+				event.preventDefault();
+				const lat = $("#latitude").val();
+				const lng = $("#longitude").val();
+				getCityName(lat, lng);
+			});
+
+			$("#use-current-location").click(function() {
+				getCurrentLocation();
+			});
+
+			function getCurrentLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+						const lat = position.coords.latitude;
+						const lng = position.coords.longitude;
+						$("#latitude").val(lat);
+						$("#longitude").val(lng);
+						getCityName(lat, lng);
+					});
+				} else {
+					alert("Geolocation is not supported by this browser.");
+				}
+			}
+
+			function getCityName(lat, lng) {
+				const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${lat}+${lng}&pretty=1`;
+				$.get(url, function(data) {
+					if (data.results.length > 0) {
+						const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
+						$("#city-name").text(city);
+					} else {
+						$("#city-name").text("City not found.");
+					}
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>Get City Name from Coordinates</h1>
+	<form id="location-form">
+		<label for="latitude">Latitude:</label>
+		<input type="text" id="latitude" name="latitude" placeholder="Enter latitude" required>
+		<label for="longitude">Longitude:</label>
+		<input type="text" id="longitude" name="longitude" placeholder="Enter longitude" required>
+		<button type="submit">Submit</button>
+		<button type="button" id="use-current-location">Use Current Location</button>
+	</form>
+	<p>City Name: <span id="city-name"></span></p>
+</body>
+</html>

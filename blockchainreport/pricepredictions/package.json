@@ -1,0 +1,18 @@
+{
+  "name": "pricepredictions",
+  "version": "1.0.0",
+  "description": "predicting prices of ethereum transactions using tensorflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "predict"
+  ],
+  "author": "Ibrahim Ame",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.6.0",
+    "node-cron": "^3.0.2"
+  }
+}

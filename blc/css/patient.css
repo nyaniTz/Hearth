@@ -1,0 +1,133 @@
+b { color: #6D3F20; }
+.brown-font, .brown-font > * { color: #6D3F20 !important; }
+
+ol{ list-style: none; counter-reset: li;}
+li{ counter-increment: li;}
+li::before {
+    content: counter(li)".";
+    color: #6D3F20;
+    margin-left: -1em;
+    display: inline-block;
+    width: 2em;
+    font-weight: 600;
+}
+
+.extra-small-font {
+    color: #E8893A;
+    font-size: 1em;
+    font-weight: 400;
+    text-align: start;
+}
+
+.pdf-icon{ max-height: 100px; } /* check for useless classes */
+
+.report-button.add-to-blockchain{ background: #E8893A; }
+
+.no-new-report{
+    background-color: #fcf3eb;
+    opacity: 1;
+    background-size: 40px 40px;
+    background-image: repeating-linear-gradient(45deg, #fae7d7 0, #fae7d7 4px, #fcf3eb 0, #fcf3eb 50%);
+    text-align: center;
+}
+
+.metamask-container.metamask-logged-in{
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+    height: auto;
+}
+
+.bg-image{
+    width: 300px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 50px;
+    top: -150px;
+}
+
+.bg-image.place-relative{
+    position: relative;
+    width: 100px;
+    left: 0px;
+    top: 0px;
+    justify-self: start;
+}
+
+.metamask-button{
+    background: #E8893A;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 1em 2em;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+.metamask-attribute{
+    color: dimgray;
+    justify-self: center;
+}
+
+.inner-grid {
+    display: grid;
+    grid-gap: 5px;
+    justify-self: end;
+    grid-column: 2/3;
+}
+
+.report-link {
+    padding: 0 0;
+    margin: 0 0;
+    max-width: 100px;
+    display: grid;
+    justify-items: center;
+    grid-gap: 7px;
+    cursor: pointer;
+}
+.report-link > img {
+    width: 100px;
+    height: 90px;
+    transition: 0.4s all;
+}
+.report-link > span {
+    text-align: center;
+    font-weight: 600;
+    transition: 0.3s all;
+    color: #6D3F20;
+}
+.report-link:hover > img { transform: scale(1.07); }
+.report-link:hover > span { color: #E8893A; }
+
+.reports-container {
+    grid-column: 1/-1;
+    display: none;
+    width: 100%;
+    grid-row-gap: 40px;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.report-details-container{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.report-details-container > *:first-child{ justify-self: end; }
+
+.report-details{
+    display: grid;
+    grid-gap: 5px;
+}
+
+.report-details > * {
+    color: #E8893A;
+    font-size: 0.8em;
+}
+
+.confirmed-emails > * {
+    color: #E8893A;
+    font-weight: 600;
+}

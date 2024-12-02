@@ -1,0 +1,63 @@
+[01-Apr-2023 20:43:09 America/New_York] PHP Warning:  Undefined array key "token" in /home/aiiovdft/health.aiiot.center/login/login.php on line 7
+[01-Apr-2023 20:43:09 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/aiiovdft/health.aiiot.center/login/login.php:18
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/login/login.php(18): mysqli_num_rows()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/login/login.php on line 18
+[01-Apr-2023 20:43:13 America/New_York] PHP Warning:  Undefined array key "token" in /home/aiiovdft/health.aiiot.center/login/login.php on line 7
+[01-Apr-2023 20:43:13 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/aiiovdft/health.aiiot.center/login/login.php:18
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/login/login.php(18): mysqli_num_rows()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/login/login.php on line 18
+[01-Apr-2023 21:52:08 America/New_York] PHP Warning:  Undefined variable $token in /home/aiiovdft/health.aiiot.center/login/login.php on line 15
+[01-Apr-2023 21:52:08 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/aiiovdft/health.aiiot.center/login/login.php:18
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/login/login.php(18): mysqli_num_rows()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/login/login.php on line 18
+[01-Apr-2023 21:52:10 America/New_York] PHP Warning:  Undefined variable $token in /home/aiiovdft/health.aiiot.center/login/login.php on line 15
+[01-Apr-2023 21:52:10 America/New_York] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/aiiovdft/health.aiiot.center/login/login.php:18
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/login/login.php(18): mysqli_num_rows()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/login/login.php on line 18
+[27-Apr-2023 06:03:12 America/New_York] PHP Parse error:  syntax error, unexpected token "echo", expecting "," or ";" in /home/aiiovdft/health.aiiot.center/login/login.php on line 7
+[27-Apr-2023 06:03:23 America/New_York] PHP Parse error:  syntax error, unexpected token "echo", expecting "," or ";" in /home/aiiovdft/health.aiiot.center/login/login.php on line 7
+[27-Apr-2023 06:03:29 America/New_York] PHP Parse error:  syntax error, unexpected token "echo", expecting "," or ";" in /home/aiiovdft/health.aiiot.center/login/login.php on line 7
+[27-Apr-2023 13:37:07 America/New_York] PHP Warning:  Undefined array key "status" in /home/aiiovdft/health.aiiot.center/login/login.php on line 50
+[27-Apr-2023 14:36:43 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 35
+[27-Apr-2023 14:36:43 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 36
+[27-Apr-2023 14:36:43 America/New_York] PHP Warning:  Undefined array key "status" in /home/aiiovdft/health.aiiot.center/login/login.php on line 52
+[27-Apr-2023 14:48:42 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 35
+[27-Apr-2023 14:48:42 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 36
+[28-Apr-2023 00:43:26 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[28-Apr-2023 00:43:26 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[28-Apr-2023 00:43:29 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[28-Apr-2023 00:43:29 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[28-Apr-2023 00:43:30 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[28-Apr-2023 00:43:30 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[28-Apr-2023 00:43:31 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[28-Apr-2023 00:43:31 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[11-May-2023 06:29:24 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[11-May-2023 06:29:24 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[11-May-2023 06:29:30 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[11-May-2023 06:29:30 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[11-May-2023 06:29:39 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[11-May-2023 06:29:39 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[11-May-2023 06:30:14 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[11-May-2023 06:30:14 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[11-May-2023 06:30:21 America/New_York] PHP Warning:  Undefined array key "lat" in /home/aiiovdft/health.aiiot.center/login/login.php on line 37
+[11-May-2023 06:30:21 America/New_York] PHP Warning:  Undefined array key "lng" in /home/aiiovdft/health.aiiot.center/login/login.php on line 38
+[25-May-2023 05:41:56 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:41:58 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:41:59 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:41:59 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:41:59 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:42:00 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:42:00 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:42:00 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 05:42:52 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 06:10:17 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 06:10:19 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[25-May-2023 06:10:21 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10

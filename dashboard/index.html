@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Capture and Processing App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Video Capture and Processing App</h1>
+          <video id="video-preview" class="w-100"></video>
+          <canvas id="canvas-preview" class="w-100"></canvas>
+        </div>
+        <div class="col-md-4">
+          <button id="record-btn" class="btn btn-primary btn-lg btn-block mb-3">Record</button>
+          <button id="stop-btn" class="btn btn-danger btn-lg btn-block mb-3" disabled>Stop Recording</button>
+          <button id="send-btn" class="btn btn-success btn-lg btn-block mb-3" disabled>Send to API</button>
+          <hr />
+          <h2>Response Video</h2>
+          <canvas id="canvas-response" class="w-100"></canvas>
+          <button id="close-btn" class="btn btn-secondary btn-block mb-3">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/yolo-v5"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+const videoPreview = document.getElementById("video-preview");
+const canvasPreview = document.getElementById("canvas-preview");
+const canvasResponse = document.getElementById("canvas-response");
+const recordBtn = document.getElementById("record-btn");
+const stopBtn = document.getElementById("stop-btn");
+const sendBtn = document.getElementById("send-btn");
+const closeBtn = document.getElementById("close-btn");
+
+let mediaRecorder;
+let recordedChunks = [];
+
+// Get user media
+navigator.mediaDevices
+  .getUserMedia({ video: true })
+  .then((stream) => {
+    videoPreview.srcObject = stream;
+    videoPreview.play();
+  })
+  .catch((error) => {
+    console.error("Error accessing media devices.", error);
+  });
+
+// Start recording
+recordBtn.addEventListener("click", () => {
+  recordedChunks = [];
+  mediaRecorder = new MediaRecorder(videoPreview.srcObject);
+  mediaRecorder.addEventListener("dataavailable", (event) => {
+    recordedChunks.push(event.data);
+  });
+  mediaRecorder.addEventListener("stop", () => {
+    const recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
+    sendBtn.disabled = false;
+  });
+  mediaRecorder.start();
+  recordBtn.disabled = true;
+  stopBtn.disabled = false;
+});
+
+// Stop recording
+stopBtn.addEventListener("click", () => {
+  mediaRecorder.stop();
+  recordBtn.disabled = false;
+  stopBtn.disabled = true;
+});
+
+// Send to API
+sendBtn.addEventListener("click", () => {
+  const recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
+  const formData = new FormData();
+  formData.append("video", recordedBlob);
+
+  fetch("https://example.com/api/process-video", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.blob();
+    })
+    .then((blob) => {
+      const videoUrl = URL.createObjectURL(blob);
+      const responseVideo = new Video();
+      responseVideo.src = videoUrl;
+      responseVideo.addEventListener("loadedmetadata", () => {
+        canvasResponse.width = responseVideo.videoWidth;
+        canvasResponse.height = responseVideo.videoHeight;
+      });
+      responseVideo.addEventListener("play", () => {
+        const context = canvasResponse.getContext("2d");
+        const yoloModel = tf.loadGraphModel('https://tfhub.dev/tensorflow/tfjs-model/yolo_v5/1/default/1')
+        const detectFrame = async () => {
+          const predictions = await yoloModel.detect(responseVideo)
+          context.clearRect(0, 0, canvasResponse.width, canvasResponse.height)
+          context.drawImage(responseVideo, 0, 0, canvasResponse.width, canvasResponse.height)
+          predictions.forEach(prediction => {
+            const [x, y, width, height] = prediction["bbox"]
+            context.strokeStyle = "#f00"
+            context.lineWidth = 2
+            context.strokeRect(x, y, width, height)
+          })
+          requestAnimationFrame(detectFrame)
+        }
+        detectFrame()
+      });
+      responseVideo.play();
+      closeBtn.addEventListener("click", () => {
+        responseVideo.pause();
+        canvasResponse.width = 0;
+        canvasResponse.height = 0;
+      });
+    })
+    .catch((error) => {
+      console.error("Error processing video.", error);
+    });
+  sendBtn.disabled = true;
+});
+
+
+    </script>
+  </body>
+</html>

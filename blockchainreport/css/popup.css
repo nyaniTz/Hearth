@@ -1,0 +1,261 @@
+.popup{
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 50px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: white;
+}
+
+.overlay{
+    position: fixed;
+    background: #00000080;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    top: 0px;
+    left: 0px;
+    display: none;
+    place-items: center;
+    z-index: 10;
+}
+
+.confirm-add-overlay{
+    display: none;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #000000d5;
+    border-radius: 20px;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+}
+
+.popup.confirm-popup-view{
+    grid-gap: 13px;
+    padding: 26px;
+}
+
+.popup-message{
+    max-width: 300px;
+    display: grid;
+    place-items: center;
+    grid-gap: 20px;
+}
+
+.popup-message > span{ text-align: center; }
+
+.popup.add-to-blockchain-view{
+    position: relative;
+    display: grid;
+    grid-gap: 50px;
+}
+
+.pop-up-title{
+    font-size: 2em;
+    color: #E8893A;
+    font-weight: 400;
+    text-align: center;
+}
+
+.overlay.report-review-overlay{
+    align-items: center;
+    padding: 200px 0px;
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.overlay.report-review-overlay::-webkit-scrollbar { display: none; }
+  
+.popup.report-review-popup{ 
+    position: relative;
+    padding: 0px;
+    width: 60vw;
+    left: 20vw; 
+}
+
+.change-permissions-view{
+    padding: 0px;
+}
+
+.popup-header, .popup-body, .popup-footer{
+    padding: 1em 2em;
+    margin: 0px;
+    border-bottom: 1.5px solid #ecebeb;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    grid-gap: 50px;
+    box-sizing: border-box;
+}
+
+.popup-body { padding: 2em;}
+
+.popup-footer { 
+    border-bottom: none;
+    place-items: end;
+    padding: 1em;
+}
+
+.popup-header h3 {
+    transform: translateY(2px);
+    color: #0E0E0E;
+    font-weight: 400;
+}
+
+.close-button{
+    position: absolute;
+    background: #0E0E0E;
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    display: grid;
+    place-items: center;
+    right: 1em;
+    cursor: pointer;
+}
+
+.close-button > img {
+    height: 8px;
+}
+
+.permission-item-add{
+    width: 100%;
+}.blockchain-permission-items-list ~ .permission-item-add > input {
+    border: 2px solid #0E0E0E;
+    border-right: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.blockchain-permission-items-list { margin: 0px; }
+
+.blockchain-permission-items-list > .permission-item{
+    border-top: none;
+    border-bottom: 1px solid #ecebeb;
+}.blockchain-permission-items-list > .permission-item:last-child{
+    border-bottom: none;
+}.blockchain-permission-items-list ~ * > .add-person-button{
+    background: #0E0E0E;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    display: grid;
+    place-items: center;
+}
+
+.change-permissions-button{
+    font-size: 14px;
+}
+
+.report-share-link {
+    width: 400px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    background: var(--primary-color);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: copy;
+    transition: 0.3s all;
+    opacity: 0.9;
+}
+
+.report-share-link:hover{
+    transform: scale(1.02);
+    opacity: 1;
+}
+.pdf-viewer{ 
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.delete-pdf-button{
+    position: absolute;
+    top: 100px;
+    justify-self: center;
+    background-color: #fde6e6;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid #c45454;
+    padding: 10px 1em 13px 1em;
+    color: #c45454;
+    left: 50%;
+    transform: translateX(-50%);
+    /* transition: all 0.5s; */
+    height: 16px;
+}
+
+.delete-pdf-button::after{
+    content: "delete report";
+    margin-left: 20px;
+    color: inherit;
+}
+
+.delete-pdf-button::before{
+    content: "";
+    position: absolute;
+    height: inherit;
+    width: 16px;
+    background-image: url("../images/delete.png");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    margin-top: 1px;
+    /* transition: 0.5s; */
+}
+
+.delete-pdf-button:hover{ 
+    background: #c45454;
+    color: white;
+}
+
+.delete-pdf-button:hover::before{
+    filter: brightness(0) saturate(100%) invert(94%) sepia(100%) saturate(24%) hue-rotate(42deg) brightness(105%) contrast(107%);
+}
+
+.delete-pdf-button[data-animation="true"]{ 
+    display: grid;
+    place-items: center;
+    height: 16px;
+    padding: 10px 2em 13px 2em;
+    background: #c45454;
+}
+
+.delete-pdf-button[data-animation="false"] > .sk-flow,
+.delete-pdf-button[data-animation="true"]::before,
+.delete-pdf-button[data-animation="true"]::after{
+    display: none;
+}
+
+.delete-pdf-button[data-animation="true"] > .sk-flow{
+    display: flex;
+    --sk-color: white;
+    position: relative;
+    top: calc(var(--sk-size) / 8);
+}
+
+.pdf-viewer-loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    position: absolute;
+    box-sizing: border-box;
+    background: white;
+    top: calc((100vh - 100px)/2);
+    left: calc((100vw - 100px)/2);
+    display: grid;
+    place-items: center;
+}
+
+.pdf-viewer-loader > .sk-chase{
+    --sk-size: 40px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Viewer</title>
+    <link rel="stylesheet" href="viewer.css">
+    <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+    
+    <div class="viewer-upper-container">
+        <h1>BMI Report</h1>
+        <ul class="viewer-report-details-container">
+            <li>0x4FB85eC5b96037eA1e09594C2D673b6C9e597f90</li>
+            <li>02/04/11</li>
+            <li onclick="openPopup()">more details</li>
+        </ul>
+    </div>
+    <div class="viewer-report-container">
+
+    </div>
+
+    <!-- <div class="viewer-no-access">
+        <h1>BMI Report</h1>
+        <div>
+            <img src="../images/warning.png" alt="" class="viewer-alert">
+            <span>You don't have enough permissions to view this document.</span>
+            <img src="../images/warning.png" alt="" class="viewer-alert">
+        </div>
+    </div> -->
+
+    <div class="overlay blockchain-report-viewer-overlay">
+        <div class="popup view-blockchain-report-details">
+            <h3 class="pop-up-title">BMI Report</h3>
+            <div class="report-details-container">
+                <div class="report-details">
+                    <div class="report-name"><b>Name:</b> BMI Report</div>
+                    <div class="report-owner"><b>Owner:</b> Ibrahim Ame</div>
+                    <div class="report-doctor"><b>Doctor:</b> Jenkins Juniour</div>
+                    <div class="report-date"><b>Date Created:</b> 22/02/2023</div>
+                    <div class="report-filetype"><b>FileType:</b> typex/PDF</div>
+                </div>
+            </div>
+            <img src="../images/close.png" alt="" onclick="closePopup()" class="close-pop-up">
+        </div>  
+    </div>
+
+    <script>
+
+        let overlay = document.querySelector(".blockchain-report-viewer-overlay");
+
+        function openPopup() {
+            overlay.style.display = "grid";
+        }
+
+        function closePopup() {
+            overlay.style.display = "none";
+        }
+    </script>
+</body>
+</html>

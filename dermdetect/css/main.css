@@ -1,0 +1,394 @@
+* {
+    font-family: Avenir Next;
+    padding: 0 0;
+    margin: 0 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    transition: 2s;
+}
+
+:root{
+    --accent: green;
+}
+
+.outer-container{
+    width: 100vw;
+    padding: 50px;
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    overflow: hidden;
+}
+
+.derm-detect-title {
+    color: var(--accent);
+}
+
+.upload-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+    padding: 20px;
+    border: 1px solid #D0D7DE;
+    border-radius: 10px;
+    align-items: center;
+    background-color: white;
+}
+
+.question-mark-icon{
+    height: 30px;
+    width: 30px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.derm-button {
+    padding: 0.4em 2em;
+    color: white;
+    background: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #22793A;
+    text-align: center;
+    align-self: end;
+}
+
+.derm-results-container{
+    width: 100%;
+    display: grid;
+    border: 1px solid #D0D7DE;
+}
+
+.derm-result-details{
+    font-size: 15px;
+}
+
+.derm-result-item{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 30px;
+    padding: 20px 20px;
+    border-bottom: 1px solid #D0D7DE;
+    align-items: center;
+    font-weight: 500;
+    background-color: white;
+}
+
+.derm-result-item:last-child{
+    border-bottom: none;
+}
+
+.image-container {
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.image-container img {
+    height: 100%;
+    width: 100%;
+}
+
+.top-header{
+    padding: 10px 20px;
+    color: auto;
+    background: #F6F8FA;
+    border: 1px solid #D0D7DE;
+    border-bottom: none;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.danger {
+    background: hsl(0, 100%, 64%);
+    border-color: rgb(244, 46, 46);
+}
+
+.results .image {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: 400px;
+    display: grid;
+    overflow: hidden;
+}
+
+.image > img {
+    width: 100%;
+}
+
+.wrapper{
+    display: grid;
+    padding: 20px;
+    min-width: 90%;
+    grid-gap: 15px;
+}
+
+.start-page{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+}
+
+.inner-wrapper{
+    display: grid;
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.inner-wrapper h1 {
+    color: var(--accent);
+    font-size: 4em;
+    font-family: Copperplate;
+    font-weight: 400;
+    text-shadow: 1px 1px 10px #000;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.inner-wrapper p{
+    color: white;
+    font-size: 2em;
+}
+
+.inner-wrapper q {
+    color: white;
+    font-size: 2em;
+    text-shadow: 0px 0px 20px black;
+}
+
+.header{
+    min-height: 70px;
+    max-height: 70px;
+    padding: 13px;
+    background: white;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    left: 0px;
+    grid-gap: 20px;
+    z-index: 10;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-self: end;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.links .derm-button {
+    padding: 7px;
+    font-size: 13px;
+}
+
+.container {
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.derm-general-container{
+}
+
+.derm-item {
+    display: grid;
+    padding: 20px 20px;
+    border-bottom: 1px solid #D0D7DE;
+    align-items: center;
+    align-content: center;
+    font-weight: 500;
+    background-color: white;
+}
+
+/* .derm-item::before{
+    content: ".";
+    position: relative;
+    left: 0px;
+    margin-right: 10px;
+} */
+
+.center {
+    text-align: center;
+    width: 100%;
+}
+
+.background-image {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-image::before {
+    height: inherit;
+    width: inherit;
+    background: #00000090;
+    content: "";
+    position: absolute;
+}
+
+
+.map-container{
+    height: auto;
+    width: 100%;
+    max-height: 600px;
+    cursor: pointer;
+    position: relative;
+}
+
+.map-container img {
+    width: 100%;
+}
+  
+gmp-map {
+      height: 100%;
+      width: 100%;
+}
+
+.side-menu{
+    width: 400px;
+    height: 100vh;
+    background: white;
+    position: fixed;
+    right: -400px;
+    top: 0px;
+    z-index: 11;
+    box-shadow: 0px 10px 10px #000;
+    transition: 0.5s;
+    display: grid;
+    grid-gap: 10px;
+    align-items: start;
+    grid-template-rows: auto 1fr;
+}
+
+.hospital-container{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 20px;
+    align-items: center;
+    padding: 30px;
+    cursor: pointer;
+    color: black;
+    border-top: 1px solid #D0D7DE;
+}
+
+.map-container::after {
+    content: "";
+    position: absolute;
+    top:0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #00000000;
+    transition: 0.3s all;
+}
+
+.map-container:hover::after {
+    background:#74c0fa66;
+}
+
+.hospital-container:last-child {
+    border-bottom: 1px solid #D0D7DE;
+}
+
+.hospital-container:hover {
+    background: #f5f5f5;
+}
+
+.hospital-container > .details{
+    display: grid;
+    grid-gap: 3px;
+}
+
+.link-icon {
+    height: 50px;
+    width: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid #3771E0;
+    position: relative;
+}
+
+.link-icon img {
+    height: 25px;
+    width: 25px;
+}
+
+.side-header{
+    display: grid;
+    grid-gap: 20px;
+    padding: 20px;
+    padding-bottom: 0px;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+}
+
+.side-header .close-button {
+    position: relative;
+}
+
+p + p {
+    margin-top: 10px;
+}
+
+
+@media screen and (max-width: 800px){
+
+    .header{
+        display: none;
+    }
+
+    .header h1 {
+        width: 5ch;
+    }
+
+    .links .derm-button {
+        font-size: 9px;
+    }
+
+    .inner-wrapper {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .inner-wrapper h1 {
+        font-size: 4em;
+    }
+
+    .inner-wrapper .derm-button {
+        margin-top: 40px;
+        font-size: 24px;
+    }
+
+    .outer-container {
+        padding: 20px;
+    }
+
+
+
+}   

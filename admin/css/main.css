@@ -1,0 +1,236 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+  margin: 0 0;
+  padding: 0 0;
+  font-family: 'Poppins', sans-serif;
+  /* border: 1px solid red; */
+  text-decoration: none;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 60px;
+  background: #0A2558;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active{ width: 240px; }
+
+.sidebar .logo-details{
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .logo-details i{
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  min-width: 60px;
+  text-align: center
+}
+.sidebar .logo-details .logo_name, .sidebar-title{
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.sidebar-title{
+  position: relative;
+  margin-top: 60px;
+  left: 60px;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  margin-top: 20px;
+  position: relative;
+  height: 100%;
+}
+
+.nav-links li{
+    position: relative;
+    list-style: none;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.nav-links li a{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.nav-links li:hover, .nav-links li.active{ background: #1f3e77; }
+.nav-links li i{
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+.links_name{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+li.log-out-link{
+  position: absolute;
+  bottom: 250px;
+}
+
+.home-section{
+  position: relative;
+  background: white;
+  transition: all 0.5s ease;
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+.home-content {
+  position: relative;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: calc(100vh - 80px); 
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+.home-section nav{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center;
+  height: 80px;
+  top: 0;
+  width: auto px;
+  z-index: 1;
+  padding: 0px 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+}
+
+.sidebar.active ~ .home-section{
+  left: 240px;
+  width: calc(100% - 240px);
+}
+
+nav .sidebar-button{
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.home-section nav .search-box{
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+}
+
+nav .search-box input{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 55px 0px 15px;
+  box-sizing: border-box;
+}
+
+i.bx-search{
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  background: #2697FF;
+  right: 7px;
+  top: 7px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+  display: grid;
+  place-content: center;
+}
+
+.profile-details{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  background: #F5F6FA;
+  border: 2px solid #eeeff4;
+  border-radius: 6px;
+  padding: 7px 10px 7px 18px;
+  place-items: center;
+  cursor: pointer;
+  color: #b4b4b4;
+}
+
+.profile-details:hover, .profile-details-dropdown > *:hover{
+  background: #eeeff4;
+  color: #434343;
+}
+
+.profile-details:hover > .profile-details-dropdown {
+  color: #b4b4b4;
+}
+
+.profile-details-dropdown{
+  position: absolute;
+  list-style: none;
+  margin: 0 0;
+  background: #F5F6FA;
+  border: 2px solid #eeeff4;
+  width: 100%;
+  left: -2px;
+  border-radius: 6px;
+  top: calc(100% + 10px);
+  display: none;
+}
+
+.profile-details-dropdown > *:first-child{
+  border-bottom: 2px solid #eeeff4;
+}
+
+.profile-details-dropdown > * {
+  padding: 10px 0px;
+  text-align: center;
+  color: inherit;
+}
+
+/* nav .profile-details .admin_name{
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap; */
+
+.profile-details i{
+  font-size: 25px;
+  color: #333;
+  justify-self: end;
+  padding: 0px;
+}
+
+.home-content-heading{
+  color: #0A2558;
+  font-size: 5em;
+  /* margin-top: -50px; */
+  font-weight: 200;
+}

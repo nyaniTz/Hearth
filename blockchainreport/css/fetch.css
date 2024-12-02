@@ -1,0 +1,32 @@
+.search-list-of-users{
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top: calc( 100% + 10px );
+    border-radius: 10px;
+    z-index: 10;
+    border: 1px solid #4B644A;
+    background: white;
+    display: none;
+}
+
+.searched-user-item{
+    cursor: pointer;
+    box-sizing: border-box;
+    min-width: 100%;
+    position: relative;
+    padding: 13px;
+    font-size: 0.9em;
+    color: #4B644A;
+    font-weight: 500;
+    border-bottom: 1px solid #4B644A;
+    transition: 0.3s;
+}
+
+.searched-user-item:last-child{ border: none; }
+
+.searched-user-item:hover{
+    color: white;
+    background: #749A7280;
+}

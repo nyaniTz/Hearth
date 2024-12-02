@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Appointment</title>
+    <style>
+
+/* Style the form container */
+.appointment-form {
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the form labels */
+.appointment-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Style the form input fields */
+.appointment-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the form select fields */
+.appointment-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the form submit button */
+.appointment-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Style the form error messages */
+.appointment-form .error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Make Appointment</h1>
+    <form action="submit_appointment.php" method="post">
+        <label for="service">Select Service:</label>
+        <select id="service" name="service">
+            <option value="">-- Select Service --</option>
+            <option value="service1">Service 1</option>
+            <option value="service2">Service 2</option>
+            <option value="service3">Service 3</option>
+        </select>
+        <label for="doctor">Select Doctor:</label>
+        <select id="doctor" name="doctor">
+            <option value="">-- Select Doctor --</option>
+            <!-- Options for Service 1 -->
+            <optgroup label="Service 1">
+                <option value="doctor1">Doctor 1</option>
+                <option value="doctor2">Doctor 2</option>
+            </optgroup>
+            <!-- Options for Service 2 -->
+            <optgroup label="Service 2">
+                <option value="doctor3">Doctor 3</option>
+                <option value="doctor4">Doctor 4</option>
+            </optgroup>
+            <!-- Options for Service 3 -->
+            <optgroup label="Service 3">
+                <option value="doctor5">Doctor 5</option>
+                <option value="doctor6">Doctor 6</option>
+            </optgroup>
+        </select>
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="time">Appointment Time:</label>
+        <input type="time" id="time" name="time" required>
+        <label for="description">Service Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        <input type="submit" value="Make Appointment">
+    </form>
+<script>
+// Define the service to doctor mappings
+var serviceToDoctor = {
+  "General Checkup": ["Dr. Smith", "Dr. Brown"],
+  "Dental Checkup": ["Dr. Lee", "Dr. Patel"],
+  "Eye Exam": ["Dr. Kim", "Dr. Davis"],
+};
+
+// Get the service and doctor select elements
+var serviceSelect = document.getElementById("service");
+var doctorSelect = document.getElementById("doctor");
+
+// When the service select changes
+serviceSelect.addEventListener("change", function() {
+  // Get the selected service
+  var service = serviceSelect.value;
+  // Clear the doctor select options
+  doctorSelect.innerHTML = "";
+  // Add the new doctor select options based on the selected service
+  for (var i = 0; i < serviceToDoctor[service].length; i++) {
+    var doctor = serviceToDoctor[service][i];
+    var option = document.createElement("option");
+    option.text = doctor;
+    option.value = doctor;
+    doctorSelect.add(option);
+  }
+});
+
+</script>
+</body>
+</html>

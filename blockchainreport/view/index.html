@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report Viewer</title>
+        <link rel="stylesheet" href="../css/popup.css">
+        <link rel="stylesheet" href="../css/spinkit.css">
+        <link rel="stylesheet" href="viewer.css">
+        <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.min.js"></script>
+        <script src="../js/web3/dist/web3.min.js" defer></script>
+        <script src="viewer.js" type="module"></script>
+    </head>
+<body>
+    <div class="pdf-viewer-loader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div> 
+    <div class="upper-wrapper">
+        <div class="viewer-upper-container">
+            <h1 class="blockchain-report-title"></h1>
+            <ul class="viewer-report-details-container"></ul>
+        </div>
+        <canvas class="viewer-report-container" id="reportViewer"></canvas>
+    </div>
+    <div class="viewer-no-access">
+        <h1>BMI Report</h1>
+        <div>
+            <img src="../images/warning.png" alt="" class="viewer-alert">
+            <span class="warning-text">You either don't have enough permissions to view this document, or the link for this report maybe wrong.</span>
+            <img src="../images/warning.png" alt="" class="viewer-alert">
+        </div>
+    </div>
+</body>
+</html>

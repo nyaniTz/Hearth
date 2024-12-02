@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Capture and Send</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- Capture canvas -->
+      <div class="col-sm-8">
+        <video id="video" class="w-100"></video>
+        <canvas id="canvas" class="w-100"></canvas>
+      </div>
+      <!-- Buttons -->
+      <div class="col-sm-4">
+        <div class="btn-group-vertical">
+          <button id="recordButton" type="button" class="btn btn-primary">Record</button>
+          <button id="sendButton" type="button" class="btn btn-success" disabled>Send</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Response canvas -->
+      <div class="col-sm-8">
+        <canvas id="responseCanvas" class="w-100"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@3.13.0/dist/tf-backend-webgl.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <script>
+    // Get elements from DOM
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const responseCanvas = document.getElementById('responseCanvas');
+    const responseContext = responseCanvas.getContext('2d');
+    const recordButton = document.getElementById('recordButton');
+    const sendButton = document.getElementById('sendButton');
+
+    // Set up media stream
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        video.srcObject = stream;
+        video.play();
+      })
+      .catch((err) => console.error('Error accessing media devices: ', err));
+
+    // Set up variables for recording
+    let isRecording = false;
+    let chunks = [];
+
+    // Function to start recording
+    const startRecording = () => {
+      isRecording = true;
+      recordButton.innerHTML = 'Stop';
+      // Reset chunks
+      chunks = [];
+    };
+
+    // Function to stop recording
+    const stopRecording = () => {
+      isRecording = false;
+      recordButton.innerHTML = 'Record';
+    };
+
+    // Event listeners for record button
+   
+recordButton.addEventListener('mousedown', () => {
+  if (!isRecording) {
+    startRecording();
+  }
+});
+
+recordButton.addEventListener('mouseup', () => {
+  if (isRecording) {
+    stopRecording();
+  }
+});
+
+// Event listener for send button
+sendButton.addEventListener('click', async () => {
+  // Stop video playback
+  video.pause();
+  // Create blob from recorded chunks
+  const blob = new Blob(chunks, { type: 'video/webm' });
+  // Reset chunks
+  chunks = [];
+  // Send blob to API
+  try {
+    const response = await fetch('API_URL', {
+      method: 'POST',
+      body: blob
+    });
+    // Get response blob
+    const responseBlob = await response.blob();
+    // Set response canvas dimensions
+    responseCanvas.width = video.videoWidth;
+    responseCanvas.height = video.videoHeight;
+    // Draw response video on canvas
+    responseContext.drawImage(await createVideo(responseBlob), 0, 0);
+  } catch (err) {
+    console.error('Error sending or receiving video: ', err);
+  }
+});
+
+// Function to create video element from blob
+const createVideo = async (blob) => {
+  return new Promise((resolve, reject) => {
+    const video = document.createElement('video');
+    video.src = URL.createObjectURL(blob);
+    video.onload = () => resolve(video);
+    video.onerror = reject;
+    video.onended = () => URL.revokeObjectURL(video.src);
+  });
+};
+
+// Function to draw video frames on canvas
+const drawVideoFrame = () => {
+  if (isRecording) {
+    // Draw video frame on canvas
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    // Add frame to chunks
+    canvas.toBlob((blob) => {
+      chunks.push(blob);
+    }, 'video/webm');
+  }
+  // Call this function again on the next frame
+  requestAnimationFrame(drawVideoFrame);
+};
+// Call drawVideoFrame to start drawing video frames on canvas
+requestAnimationFrame(drawVideoFrame);
+  </script>
+</body>
+</html>

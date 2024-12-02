@@ -1,0 +1,82 @@
+/* .permission-container{ margin-top: 30px; } */
+
+.permission-items-list{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 20px;
+    display: grid;
+    overflow: hidden;
+    min-width: 400px;
+}
+
+.permission-item{
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    display: grid;
+    grid-gap: 20px;
+    box-sizing: border-box;
+    grid-template-columns: 1fr auto;
+}
+
+.permission-item-name{
+    color: #E8893A;
+    font-weight: 400;
+}
+
+.permission-item-add{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    box-sizing: border-box;
+}
+
+.add-permission-item-input{
+    border: none;
+    padding: 15px 20px;
+    font-size: 1em;
+    position: relative;
+    color: #E8893A;
+    outline: none;
+    font-weight: 400;
+}
+
+.confirmation-buttons{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    grid-gap: 20px;
+}
+
+.confirm-button{
+    padding: 0.8em 1.6em;
+    color: white;
+    background: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}.confirm-button:hover{ opacity: 0.8; }
+
+.confirmation-buttons > *:first-child{ 
+    justify-self: end;
+    background: #EEAC75;
+}
+.confirmation-buttons > *:last-child{ 
+    justify-self: start;
+    background: #E2574C;
+}
+
+.add-person-button, .toggle-remove{
+    background: #E2574C;
+    padding: 15px 26px;
+    cursor: pointer;
+}.add-person-button > img{ width: 13px; }
+.toggle-remove > img{ width: 7px; }
+
+.toggle-remove {
+    height: 22px;
+    width: 22px;
+    padding: 0;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}

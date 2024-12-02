@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+    <script src="js/login.js"></script>
+
+    <title>Dashboard | AI IoT Health Solutions</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/device-list.css">
+    <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="js/map3b.js" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-dFHYjTqEVLndbN2gdvXsx09jfJHmNc8&callback=init"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+klMHn8zD6PCBZhj9vE+9nBq3OjBwfeX+O3Inp5AZdf5qID" crossorigin="anonymous">
+  
+
+<style>
+        #ecg {
+      width: 500px;
+      height: 300px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+</style>
+</head>
+
+<body>
+    <div class="" id="blur" style="">
+        <div class="sidebar">
+            <div class="logo-details">
+
+
+            </div>
+            <ul class="nav-links">
+                <li class="dash content active">
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="links_name">Dashboard</span>
+                </li>
+                
+                
+                <!--<li class="diagnosis content">-->
+                <!--    <i class="bx bx-line-chart"></i>-->
+                <!--    <span class="links_name">Diagnosis</span>-->
+                <!--</li>-->
+                
+
+                <li class="device content">
+                    <i class="bx bx-add-to-queue"></i>
+                    <span class="links_name">Medical Devices</span>
+                </li>
+                <li class="treatment content">
+                    <i class="bx bxs-capsule"></i>
+                    <span class="links_name">Treatment</span>
+                </li>
+                
+                <!--<li class="schedule content">-->
+                <!--    <i class="bx bx-calendar"></i>-->
+                <!--    <span class="links_name">My Schedule</span>-->
+                <!--</li>-->
+                
+                <!-- <li class="nursenotes content">
+            <i class="bx bx-edit-alt"></i>
+            <span class="links_name">Nurse Notes</span>
+        </li> -->
+        
+        
+                <li class="helpline content">
+                    <i class="bx bxs-phone-call"></i>
+                    <span class="links_name">Healthcare Visit</span>
+                </li>
+                
+                
+                <li class="symptom-bot content">
+                    <i class="bx bxs-bot "></i>
+                    <span class="links_name">Symptoms ChatBot</span>
+
+                </li>
+                
+                
+                <!--<li class="emotion-bot content">-->
+                <!--    <i class="bx bxs-bot "></i>-->
+                <!--    <span class="links_name">Emotion Checker</span>-->
+
+                <!--</li>-->
+                
+                
+                <li class="location content">
+                    <i class="fa-solid fa-location-dot cart two "></i>
+                   <span class="links_name">Patient Location</span> 
+                </li>
+                <li class="blockchain content">
+                    <i class="fa fa-btc" aria-hidden="true"></i>
+                   <span class="links_name">Blockchain</span> 
+                </li>
+                <li class="derm-detect content">
+                    <i class="fa fa-contao" aria-hidden="true"></i>
+                   <span class="links_name">Derm Detect</span> 
+                </li>
+                <li class="imagediagnosis content">
+                    <i class="fas fa-medkit"></i>
+                   <span class="links_name">Image Diagnosis</span> 
+                </li>
+                <!--<li class="brain-xonet content">-->
+                <!--    <i class="fas fa-medkit"></i>-->
+                <!--   <span class="links_name">Brain Tumor Detector</span> -->
+                <!--</li>-->
+                <li class="agenda content">
+                    <i class="bx bx-edit-alt"></i>
+                   <span class="links_name">Agenda</span> 
+                </li>
+                <li class="log_out">
+                    <i class="bx bx-log-out"></i>
+                    <span class="links_name">Log out</span>
+                </li>
+            </ul>
+        </div>
+        <section class="home-section">
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu sidebarBtn'></i>
+                    <span class="dashboard">Dashboard</span>
+                </div>
+                <div class="logo">
+                    <img src="../../assets/img/logo%20blue%20bg.PNG?raw=true" class="logo" alt="logo-blue-bg" style="width: 50%;height: auto;margin: 15px;" border="0">
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="profile-details">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="DP">
+                    <span class="admin_name username"></span>
+                    <i class='bx bx-chevron-up'></i>
+
+                    <div class="section-dropdown">
+
+                        <a class="sd-list" href="../account/">Account</a>
+                        <a class="sd-list" href="../documentation/">Documentation</a>
+                        <a class="sd-list" href="../premium/">Premium</a>
+                        <a class="sd-list" href="../preference/">Preference</a>
+
+                    </div>
+
+                </div>
+            </nav>
+
+
+
+            <div class="box-content dashboard active">
+                <div class="overview-boxes" style="margin-top:-4%; background-color:#faf7f7;">
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">chills</div>
+                            <div class="number chills"></div>
+                            <div class="indicator">
+                                <span class="text"> Safe: false</span>
+                            </div>
+                        </div>
+                        <i class="cart" style="font-size: 50px; font-style: initial; font-weight: bold;">❄</i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Diastole BP</div>
+                            <div class="number dbp"></div>
+                            <div class="indicator">
+                                <span class="text">Safe [60 - 80 mm Hg]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-heart cart two"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Systole BP</div>
+                            <div class="number sbp"></div>
+                            <div class="indicator">
+                                <span class="text">Safe [90 - 120 mm Hg]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-heart cart three"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">HeartRate</div>
+                            <div class="number heartrate"></div>
+                            <div class="indicator">
+                                <span class="text">Safe [60 to 100 beats]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-heartbeat cart four"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Respiration Rate</div>
+                            <div class="number respiration"></div>
+                            <div class="indicator">
+                                <span class="text">Safe [12 to 16 breaths/min]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-lungs cart two"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">SpO2</div>
+                            <div class="number spo2"></div>
+                            <div class="indicator">
+                                <span class="text">Range [95% or higher]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-wind cart three"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Blood Group</div>
+                            <div class="number bloodg"></div>
+                            <div class="indicator">
+                                <span class="text"></span>
+                            </div>
+                        </div>
+                        <i class="fas fa-droplet cart four"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Temperature</div>
+                            <div class="number temp"></div>
+                            <div class="indicator">
+                                <span class="text">Range [36°C to 38°C]</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-temperature-half cart "></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Ambulation </div>
+                            <div class="number ambulation"></div>
+                            <div class="indicator">
+                                <span class="text">Values possible : True/False</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-face-thermometer"></i>
+                        <i class="fas fa-syringe cart three"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Fever History </div>
+                            <div class="number fever"></div>
+                            <div class="indicator">
+                                <span class="text">Values possible : Yes/No/Other</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-temperature-half cart four"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">BMI</div>
+                            <div class="number bmi"></div>
+                            <div class="indicator">
+                                <span class="text">Range [18.5 to 24.9]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-balance-scale cart "></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">FiO2 </div>
+                            <div class="number fio2"></div>
+                            <div class="indicator">
+                                <span class="text">Range [50 to 100]</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-lungs cart two"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Emotion </div>
+                            <div class="number emotion"></div>
+                            <div class="indicator">
+                                <span class="text">Values Possible:happy/neutral/sad</span>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-face-smile cart two"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Location </div>
+                            <div class="number location"></div>
+                            <div class="indicator">
+                                <span class="text">GPS + City</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-location-dot cart two"></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#healthModal">
+    AI Diagnosis
+</button>
+                            </div>
+                            <div class="number emotion"></div>
+                            <!--<div class="indicator">-->
+                            <!--    <span class="text">Values:[Healthy, Heart disease] </span>-->
+                            <!--</div>-->
+                        </div>
+                        <i class="fa-sharp fa-solid fa-robot cart two"></i>
+                    </div>
+                      <div id="ecg">
+                    <canvas id="chart"></canvas>
+                    
+                    <!-- Button to trigger the modal -->
+
+
+<!-- The Modal -->
+<div class="modal fade" id="healthModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Health Parameters</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><i class="fas fa-heartbeat" style="color: #FF5733;"></i> <span style="font-weight: bold; color: #333;">Heartbeat Rate:</span> <span style="color: #333;" class="number heartrate">75 bpm</span></p>
+                        <p><i class="fas fa-thermometer-half" style="color: #FF5733;"></i> <span style="font-weight: bold; color: #333;">Temperature:</span> <span style="color: #333;" class="number temp">98.6°F</span></p>
+                        <p><i class="fas fa-tachometer-alt" style="color: #FF5733;"></i> <span style="font-weight: bold; color: #333;">ECG Signal:</span> <span style="color: #333;">Normal</span></p>
+                        <p><i class="fas fa-lungs" style="color: #FF5733;"></i> <span style="font-weight: bold; color: #333;">SpO2:</span> <span style="color: #333;" class="number spo2">98%</span></p>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5 style="color: #FF5733;">AI-Predicted Health State</h5>
+                        <p><span style="color: #333;" class="number pred">Healthy</span></p>
+                        <h5 style="color: #FF5733;">Confidence Level</h5>
+                        <p><span style="color: #333;" class="number confi">85%</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                  </div>
+                </div>
+            </div>
+
+
+ <!-- Include the Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script>
+// document.addEventListener('DOMContentLoaded', function() {
+//   // Get the chart canvas element
+//   const canvas = document.getElementById('chart');
+
+//   // Create the chart using Chart.js
+//   const ctx = canvas.getContext('2d');
+//   const chart = new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//       labels: [],
+//       datasets: [{
+//         label: 'ECG',
+//         data: [],
+//         borderColor: 'blue',
+//         fill: false
+//       }]
+//     },
+//     options: {
+//       responsive: true,
+//       scales: {
+//         y: {
+//           beginAtZero: true
+//         }
+//       }
+//     }
+//   });
+
+//   // Function to fetch heart rate data from the database
+//   function fetchHeartRateData() {
+//     // Simulating fetching heart rate data from the database
+//     // const heartRate = Math.floor(Math.random() * 100) + 60; // Random heart rate value between 60 and 160
+
+//     $.post('https://health.aiiot.center/api/main.php', {userId: 'jsmith', action: 'fetch_ecg'}, function(response) {
+//       console.log('ECG FETCH: ', response);
+//       const heartRate = response.ecg;
+//       console.log('EXTRACT ECG', heartRate);
+
+//       // Add the latest heart rate to the array
+//       chart.data.datasets[0].data.push(heartRate);
+
+//       // Limit the array length to 20
+//       if (chart.data.datasets[0].data.length > 20) {
+//         chart.data.datasets[0].data.shift(); // Remove the oldest value from the array
+//       }
+
+//       // Update labels based on the array length
+//       chart.data.labels = Array.from({ length: chart.data.datasets[0].data.length }, (_, i) => i + 1);
+
+//       // Update the chart
+//       chart.update();
+//     });
+//   }
+
+//   // Fetch heart rate data every 2 seconds
+//   setInterval(fetchHeartRateData, 250);
+// });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the chart canvas element
+  const canvas = document.getElementById('chart');
+
+  // Create the chart using Chart.js
+  const ctx = canvas.getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'ECG',
+        data: [],
+        borderColor: 'blue',
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          reverse: true
+        }
+      }
+    }
+  });
+
+  // Function to fetch ECG data from the database
+  function fetchECGData() {
+    // Simulating fetching ECG data from the database
+    // const ecgData = '1,2,3,4,5,6,7,8,9,10'; // Example ECG data string
+
+    $.post('https://health.aiiot.center/api/main.php', {userId: 'jsmith', action: 'fetch_ecg'}, function(response) {
+      console.log('ECG FETCH: ', response);
+      const ecgDataString = response.ecg;
+      console.log('EXTRACT ECG', ecgDataString);
+
+      // Split the ECG data string into an array of numbers
+      const ecgDataArray = ecgDataString.split(',').map(Number);
+
+      // Reverse the order of the ECG data array
+      ecgDataArray.reverse();
+
+      // Add the latest ECG data to the chart
+      chart.data.datasets[0].data.push(...ecgDataArray);
+
+      // Limit the array length to 54
+      if (chart.data.datasets[0].data.length > 108) {
+        chart.data.datasets[0].data.splice(0, chart.data.datasets[0].data.length - 108); // Remove the oldest values from the array
+      }
+
+      // Update labels based on the array length
+      chart.data.labels = Array.from({ length: chart.data.datasets[0].data.length }, (_, i) => i + 1);
+
+      // Update the chart
+      chart.update();
+    });
+  }
+
+  // Fetch ECG data every 2 seconds
+  setInterval(fetchECGData, 1500);
+})
+
+
+  </script>
+            <!----------------------------------------------------------------------->
+
+
+
+
+            <div class="symptom-bot dashboard">
+
+                <iframe style="height: 100%; width: 100%; border: none;" src="https://health-connect-chat-bot.vercel.app/"></iframe>
+
+            </div>
+            <div class="emotion-bot dashboard">
+
+                <iframe style="height: 100%; width: 100%; border: none;" src="https://facial-ai-client.vercel.app/"  allow="camera *; microphone *"></iframe>
+
+            </div>
+
+
+
+            <!----------------------------------------------------------------------->
+
+
+
+
+
+            <div class="diagnosis dashboard">
+                <div class="diagnosis-boxes">
+                    <div class="graphout box">
+                        <div class="sys-heart">
+                            <div id="sys-heart-graph" class="graph"></div>
+                        </div>
+                        <div id="sys-heart-info" class="graph-info"><span>Systolic ECG</span><text class="dash-info-data sbp"></text></div>
+                    </div>
+                    <div class="graphout box">
+                        <div class="dia-heart">
+                            <div id="dia-heart-graph" class="graph"></div>
+                        </div>
+                        <div id="dia-heart-info" class="graph-info"><span>Diastolic ECG</span><text class="dash-info-data dbp"></text></div>
+                    </div>
+                    <div class="graphout box">
+                        <div class="spo2-graph">
+                            <div id="spo2-graph" class="graph"></div>
+                        </div>
+                        <div id="spo2-info" class="graph-info"><span>SpO₂ Graph</span><text class="dash-info-data spo2"></text></div>
+                    </div>
+                    <div class="graphout box">
+                        <div class="resp-graph">
+                            <div id="resp-graph" class="graph"></div>
+                        </div>
+                        <div id="resp-info" class="graph-info"><span>Respiration Graph</span><text class="dash-info-data respiration"></text></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!----------------------------------------------------------------------->
+
+
+
+
+
+            <div class="med-device dashboard">
+                <div class="device-boxes">
+                    <div class="dev-nav box">
+                        <div class="dev-search">
+                            <input type="text" onkeyup="node_search()" placeholder="Search for Health Device" class="s-inpt">
+                        </div>
+                        <div class="s-btn">
+                            <button class="s-btn-func" onclick="node_search()">Search</button>
+                            <button class="s-btn-func" onclick="add_node()">Add Device</button><button class="s-btn-func" onclick="node_search_filter()">Filter</button>
+                        </div>
+                    </div>
+                    <div class="dev-list box">
+
+                        <ul id="myUL">
+                            <div class="limiter">
+                                <div class="container-table100">
+                                    <div class="wrap-table100">
+                                        <div class="table100">
+                                            <table id="dev-table">
+                                                <thead>
+                                                    <tr class="table100-head">
+                                                        <th class="">Last Update</th>
+                                                        <th class="">Health Device</th>
+                                                        <th class="">Device ID</th>
+                                                        <th class="">Value Attributes</th>
+                                                        <th class="">Status</th>
+                                                        <th class="">Add/Reset</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr id="node-22092601">
+                                                        <td class="">2023-06-15 10:36</td>
+                                                        <td class="">Mobile Phone</td>
+                                                        <td class="">22092602</td>
+                                                        <td class="">DBP, SBP</td>
+                                                        <td class="device-online"></td>
+                                                        <td><button class="dev-table-btn">Restart</button></td>
+                                                    </tr>
+                                                    <tr id="node-22092602">
+                                                        <td class="">2023-06-15 10:36</td>
+                                                        <td class="">ESP-Thermometer</td>
+                                                        <td class="">22092601</td>
+                                                        <td class="">Temp</td>
+                                                        <td class="device-online"></td>
+                                                        <td><button class="dev-table-btn">Restart</button></td>
+                                                    </tr>
+
+                                                    <!-- <tr id="node-22110103">
+                            <td class="">2022-11-01 15:45</td>
+                            <td class="">All</td>
+                            <td class="">22110103</td>
+                            <td class="">SBP,DBP,Resp,HR,Temp,spO2,fiO2</td>
+                            <td class="device-offline" style=""></td>
+                            <td ><button class="dev-table-btn">Connect</button></td>
+                          </tr> -->
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ul>
+
+                    </div>
+                    <!-- <div class="dev-list-sort">qwadadas</div> -->
+                </div>
+            </div>
+
+
+            <!----------------------------------------------------------------------->
+
+
+            <div class="scheduler dashboard">
+                <div id="calendar" class="calendar-box"></div>
+            </div>
+
+
+            <!----------------------------------------------------------------------->
+
+            <div class="treatment dashboard">
+                <div class="dev-list box">
+
+                    <ul id="myUL">
+                        <div class="limiter">
+                            <div class="container-table100">
+                                <div class="wrap-table100">
+                                    <div class="table100">
+                                        <table id="dev-table">
+                                            <thead>
+                                                <tr class="table100-head">
+                                                    <th class="">Date</th>
+                                                    <th class="">Doctor</th>
+                                                    <th class="">Category</th>
+                                                    <th class="">Medical Description</th>
+                                                    <th class="">Status</th>
+                                                    <th class="">Report</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="">2022-09-29</td>
+                                                    <td class="">Dr. Vignesh Kumar</td>
+                                                    <td class="">Orthopedic</td>
+                                                    <td class="">Arthroscopy, right knee, with partial medial meniscectomy and partial lateral meniscectomy</td>
+                                                    <td class="">Updated</td>
+                                                    <td><button class="dev-table-btn">Download</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ul>
+
+                </div>
+            </div>
+
+        <!----------------------------------------------------------------------->
+
+
+
+
+
+
+
+            <!----------------------------------------------------------------------->
+
+
+        
+        <main class="location dashboard" style="margin-left:0px;">
+            <div id="map" class="map" ></div>
+            <p id="info" class="info" style="background: linear-gradient(to right, #ff7f50, #87cefa); padding:10px; color: white; text-align:center;"></p>
+
+        </main>
+        <script src="js/map3b.js" type="text/javascript"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJuXxmGpIbBHS8JFeuD4DRVm1I4EaOqzI&callback=init"></script>
+
+
+        <div class="blockchain dashboard">
+            <iframe style="width: 100%; height: 100vh; border: none;" src="../../blockchainreport/patient.php"></iframe>
+        </div>
+        
+        <div class="derm-detect dashboard">
+            <iframe style="width: 100%; height: 100vh; border: none;" src="../../dermdetect/index.php"></iframe>
+        </div>
+        
+        <div class="brain-xonet dashboard">
+            <iframe style="width: 100%; height: 100vh; border: none;" src="https://braintumor.aiiot.live/index.html"></iframe>
+        </div>
+
+            <!----------------------------------------------------------------------->
+
+
+
+
+            <div class="agenda dashboard">
+
+                <iframe style="height: 100%; width: 100%; border: none;" src="https://health.aiiot.center/dashboard/modules/agenda/index.php"></iframe>
+
+            </div>
+        
+            <div class="imagediagnosis dashboard">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#heartMRIModal">
+                      <i class="fas fa-heart"></i> Heart Disease
+                    </button>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#brainMRIModal">
+                      <i class="fas fa-brain"></i> Brain Cancer
+                    </button>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#skinDiagnosisModal">
+                      <i class="fas fa-band-aid"></i> Skin Cancer
+                    </button>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#covid19Modal">
+                      <i class="fas fa-virus"></i> COVID-19
+                    </button>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#lungDiagnosisModal">
+                      <i class="fas fa-lungs"></i> Lung Cancer
+                    </button>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#breastDiagnosisModal">
+                      <i class="fas fa-ribbon"></i> Breast Cancer
+                    </button>
+                  </div>
+                  
+                  <div class="col-md-4 mb-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#tickInsectsModal">
+                      <i class="fas fa-ribbon"></i> Tick Insects
+                    </button>
+                  </div>
+                  
+                </div>
+            
+                <!-- Modals for each button -->
+                  <div class="modal fade" id="heartMRIModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" style="height: 100vh;">
+                <div class="modal-content" style="height: 100%;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="heartLabel">Heart disease diagnosis with heart MRI</h5>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+            </div>
+                        <div class="modal-body" style="height: 90vh;">
+                        
+                          <!-- Insert content for the existing modal here -->
+                          <iframe src="https://mercelv-aiiot-heart.hf.space" frameborder="0" width="100%" height="700px"></iframe>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+            <!--heart diagnosis modal-->
+      
+                  <div class="modal fade" id="brainMRIModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" style="height: 100vh;">
+                <div class="modal-content" style="height: 100%;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="heartLabel">Brain cancer diagnosis using brain MRI</h5>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+            </div>
+                        <div class="modal-body" style="height: 90vh;">
+                        
+                          <!-- Insert content for the existing modal here -->
+                          <iframe src="https://mercelv-brain.hf.space" frameborder="0" width="100%" height="700px"></iframe>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  
+                              <!--tick insects modal-->
+      
+                  <div class="modal fade" id="tickInsectsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" style="height: 100vh;">
+                <div class="modal-content" style="height: 100%;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="heartLabel">Tick Insect Prediction</h5>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+            </div>
+                        <div class="modal-body" style="height: 90vh;">
+                        
+                          <!-- Insert content for the existing modal here -->
+                          <iframe src="https://tickinsectprediction.streamlit.app" frameborder="0" width="100%" height="700px"></iframe>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+
+
+            <!--skin diagnosis modal-->
+          
+<div class="modal fade" id="skinDiagnosisModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="height: 100vh;">
+    <div class="modal-content" style="height: 100%;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="heartLabel">Skin Cancer diagnosis using skin images</h5>
+        <!-- Replace the close button with a Font Awesome icon -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+      </div>
+      <div class="modal-body" style="height: 90vh;">
+        <!-- Insert content for the existing modal here -->
+        <iframe src="https://mercelv-skin.hf.space" frameborder="0" width="100%" height="700px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+         
+
+            <!--skin diagnosis modal-->
+          
+<div class="modal fade" id="breastDiagnosisModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="height: 100vh;">
+    <div class="modal-content" style="height: 100%;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="heartLabel">Breast Cancer diagnosis using mamograms</h5>
+        <!-- Replace the close button with a Font Awesome icon -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+      </div>
+      <div class="modal-body" style="height: 90vh;">
+        <!-- Insert content for the existing modal here -->
+        <iframe src="https://mercelv-breast.hf.space" frameborder="0" width="100%" height="700px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            <!--covid diagnosis modal-->
+          
+<div class="modal fade" id="covid19Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="height: 100vh;">
+    <div class="modal-content" style="height: 100%;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="heartLabel">Covid19 diagnosis using chest X-ray images</h5>
+        <!-- Replace the close button with a Font Awesome icon -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+      </div>
+      <div class="modal-body" style="height: 90vh;">
+        <!-- Insert content for the existing modal here -->
+        <iframe src="https://mercelv-covid.hf.space" frameborder="0" width="100%" height="700px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            <!--lung diagnosis modal-->
+          
+<div class="modal fade" id="lungDiagnosisModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="height: 100vh;">
+    <div class="modal-content" style="height: 100%;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="heartLabel">Lung Cancer diagnosis using Chest X-ray images</h5>
+        <!-- Replace the close button with a Font Awesome icon -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+        </button>
+      </div>
+      <div class="modal-body" style="height: 90vh;">
+        <!-- Insert content for the existing modal here -->
+        <iframe src="https://mercelv-lung.hf.space" frameborder="0" width="100%" height="700px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+                  
+                <!-- Similar modals for other options (Brain MRI, Skin Diagnosis, COVID-19, Lung Diagnosis, Breast Diagnosis) -->
+              </div>
+            </div>
+
+
+            <!----------------------------------------------------------------------->
+
+            <div class="helpline dashboard">
+
+                <div class="number-boxes">
+                    <div class="left num-list">
+                        <div class="num box">
+                            <h2>Emergency</h2>
+                            <span><b>9 AM - 8PM </b> -> +910000000000</span>
+                            <span><b>9 PM - 8AM </b> -> +910000000000</span>
+                        </div>
+                        <div class="num box">
+                            <h2>Check Appointments</h2>
+                            <span><b>General</b> -> +910000000000</span>
+                            <span><b>Urgent</b> -> +910000000000</span>
+                        </div>
+                        <div class="num box">
+                            <h2>Nearest Hospital Reception</h2>
+                            <span><b>ABC, XYZ</b> -> +910000000000</span>
+                            <span><b>DEF, LMN</b> -> +910000000000</span>
+                        </div>
+                        <div class="num box">
+                            <h2>FAQs on HealthConnect</h2>
+                            <li><a href="#">Why AI&IoT Health Solutions?</a></li>
+                            <li><a href="#">Which devices work wth NEU AI&IoT Lab Health Solutions?</a></li>
+                            <li><a href="#">How to connect devices?</a></li>
+                        </div>
+                    </div>
+                    <div class="right num-list">
+                        <div class="num box" style="align-items: stretch;">
+                            <h2>Request for Pickup</h2>
+                            <form action="https://formbold.com/s/oYJb6" method="POST" class="form-style-9">
+                                <ul>
+                                    <li>
+                                        <input type="text" name="name" class="field-style field-split align-left" placeholder="Name">
+                                        <input type="email" name="email" class="field-style field-split align-right" placeholder="Email">
+
+                                    </li>
+                                    <li>
+                                        <input type="text" name="phone" class="field-style field-split align-left" placeholder="Phone">
+                                        <input type="location" name="location" class="field-style field-split align-right" placeholder="Pickup Location">
+                                    </li>
+                                    <li>
+                                        <style>
+                                            select:required:invalid {
+                                                color: rgb(142, 142, 142);
+                                            }
+                                            
+                                            input:required:invalid {
+                                                color: rgb(142, 142, 142);
+                                            }
+                                            
+                                            option[value=""][disabled] {
+                                                display: none;
+                                            }
+                                            
+                                            option {
+                                                color: #000;
+                                            }
+                                        </style>
+                                        <label for="lang"></label>
+                                        <select required="" type="text" name="category" class="field-style field-split align-left" placeholder="Medical Category" id="lang" style="font-size: 13px;">
+                      <option value="" disabled="" selected="">Category</option>
+                      <option value="Orthopedics">Orthopedics</option>
+                      <option value="Internal Medicine">Internal Medicine</option>
+                      <option value="Gynecology">Gynecology</option>
+                      <option value="Dermatology">Dermatology</option>
+                      <option value="Pediatrics">Pediatrics</option>
+                      <option value="Radiology">Radiology</option>
+                      <option value="Family Medicine">Family Medicine</option>
+                      <option value="ENT">ENT</option>
+                      <option value="Anesthesia">Anesthesia</option>
+                    </select>
+
+                                        <label for="meeting-time"></label>
+
+                                        <input class="field-style field-split align-right" type="datetime-local" id="meeting-time" name="time" value="" min="" max="" required="">
+                                    </li>
+
+                                    <li>
+                                        <input type="submit" value="Send Message">
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="num box">
+                            <h2>Locate Nearby Hospitals</h2>
+                            <div class="map">
+
+            <!--                    <iframe id="hospital-mapp" width="450" height="400" frameborder="0" style="border:0; height: 100%;" referrerpolicy="no-referrer-when-downgrade" src="https://health.aiiot.center/dashboard/map/" allowfullscreen="">-->
+            <!--</iframe>-->
+<iframe width="450" height="400" frameborder="0" style="border:0; height: 100%;"  src="https://health.aiiot.center/dashboard/map/map.html" >
+            </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <!-- </div>
+    <script type="text/javascript">
+    function toggle() {W
+      var blur = document.getElementById('blur');
+      blur.classList.toggle('active')
+    }
+
+  </script> -->
+        <script src="https://kit.fontawesome.com/1ed7106697.js" crossorigin="anonymous"></script>
+        <script src="js/index.js"></script>
+        <script src="js/nav.js"></script>
+        <script src="js/sidebar.js"></script>
+        <!-- <script src="js/diagnosis.js"></script> -->
+        <script src="js/device.js"></script>
+        <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.ie11.min.js"></script>
+        <script src="js/calender.js"></script>
+        <script src="js/mqtt.js" type="text/javascript"></script>
+
+  
+        <!--===============================================================================================-->
+
+<br><br><br>
+        <footer style="margin-top:4%; ">
+            <div class="container-fluid bg-dark text-light py-3" style="margin-left:200px;  align-items:center; justify-content:center;">
+                <div class="row">
+                    <img src="../../assets/img/logo%20blue%20bg.PNG?raw=true" class="logo" alt="logo-blue-bg" style="width: 15%;display:block; height: auto;margin: auto;" border="0">
+                   <br>
+                    <small style="margin-left:35%;">Copyright &copy; <span id="year"></span> AI and Robotics Institute, NEU</small>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Set the current year in the copyright notice
+            const currentYear = new Date().getFullYear();
+            document.getElementById('year').innerHTML = currentYear;
+            
+             // document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

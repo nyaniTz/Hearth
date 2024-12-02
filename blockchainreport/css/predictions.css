@@ -1,0 +1,65 @@
+.chart{
+    width: 500px;
+}
+
+.grid-wrapper{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.price-predictions-view{
+    margin: 100px 0px;
+    padding: 0px;
+}
+
+.price-predictions-container{
+    background: white;
+    border-radius: 20px;
+    display: grid;
+    grid-gap: 50px;
+    padding: 50px;
+}
+
+h1{ 
+    color: var(--primary-color);
+    justify-self: center;
+}
+
+.title-label{ font-weight: 600;}
+
+.predictions-inner-container{
+    background: var(--primary-color);
+    border-radius: 20px;
+    color: white;
+}
+
+.date-price-item{
+    padding: 13px 20px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 4fr 3fr 3fr;
+    align-items: center;
+    border-bottom: 2px solid white;
+    box-sizing: border-box;
+}
+
+.date-wrapper-container{
+    display: grid;
+}
+
+.date-label-name{
+    font-weight: 600;
+    /* justify-self: center; */
+}
+
+.date-label-raw{
+    font-size: 13px;
+}
+.price-label-dollars,.price-label-eth{
+    justify-self: center;
+}
+
+.date-price-item.green-background{
+    background: #749A72;
+}

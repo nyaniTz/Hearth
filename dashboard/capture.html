@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #Disp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card mb-3">
+            <div id="Disp"></div>
+            <div class="card-footer">
+                <button class="btn btn-primary mr-2" id="Capture">Capture</button>
+                <button class="btn btn-success mr-2" id="Send">Send</button>
+                <button class="btn btn-danger" id="Close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix"></script>
+
+ <script>
+//         const disp = document.querySelector('#Disp');
+//         const captureBtn = document.querySelector('#Capture');
+//         const sendBtn = document.querySelector('#Send');
+//         const closeBtn = document.querySelector('#Close');
+//         const waitingText = 'Waiting for Response...';
+
+//         captureBtn.addEventListener('click', () => {
+//             disp.innerHTML = '';
+//             disp.style.backgroundImage = '';
+//             takePicture();
+//         });
+
+//         sendBtn.addEventListener('click', () => {
+//             sendPicture();
+//         });
+
+//         closeBtn.addEventListener('click', () => {
+//             disp.innerHTML = '';
+//             disp.style.backgroundImage = '';
+//         });
+
+//         function takePicture() {
+//             const constraints = {
+//                 video: true,
+//             };
+
+//             navigator.mediaDevices.getUserMedia(constraints)
+//                 .then((stream) => {
+//                     const video = document.createElement('video');
+//                     video.setAttribute('autoplay', '');
+//                     video.setAttribute('muted', '');
+//                     video.srcObject = stream;
+//                     disp.appendChild(video);
+//                     video.addEventListener('loadedmetadata', () => {
+//                         const canvas = document.createElement('canvas');
+//                         canvas.width = video.videoWidth;
+//                         canvas.height = video.videoHeight;
+//                         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+//                         const dataURL = canvas.toDataURL();
+//                         disp.innerHTML = '';
+//                         disp.style.backgroundImage = `url(${dataURL})`;
+//                     });
+//                 })
+//                 .catch((error) => {
+//                     console.error(error);
+//                 });
+//         }
+
+//         function sendPicture() {
+//             const dataURL = disp.style.backgroundImage.replace(/^url\("(.+)"\)$/, '$1');
+//             disp.innerHTML = waitingText;
+//             fetch('https://api.randomuser.me/portraits/med/men/1.jpg')
+//             .then((response) => response.blob())
+//             .then((blob) => {
+//                 const objectURL = URL.createObjectURL(blob);
+//                 disp.innerHTML = '';
+//                 disp.style.backgroundImage = `url(${objectURL})`;
+//             })
+//             .catch((error) => {
+//                 disp.innerHTML = `Error: ${error}`;
+//             });
+//     }
+
+
+    const disp = document.querySelector('#Disp');
+    const captureBtn = document.querySelector('#Capture');
+    const sendBtn = document.querySelector('#Send');
+    const closeBtn = document.querySelector('#Close');
+    const waitingText = 'Waiting for Response...';
+
+    disp.style.backgroundImage = 'url("https://via.placeholder.com/640x480")';
+
+    captureBtn.addEventListener('click', () => {
+        disp.innerHTML = '';
+        disp.style.backgroundImage = '';
+        takePicture();
+    });
+
+    sendBtn.addEventListener('click', () => {
+        sendPicture();
+    });
+
+    closeBtn.addEventListener('click', () => {
+        disp.innerHTML = '';
+        disp.style.backgroundImage = 'url("https://via.placeholder.com/640x480")';
+    });
+
+    function takePicture() {
+        const constraints = {
+            video: true,
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+                disp.style.backgroundImage = '';
+                const video = document.createElement('video');
+                video.setAttribute('autoplay', '');
+                video.setAttribute('muted', '');
+                video.srcObject = stream;
+                disp.appendChild(video);
+                video.addEventListener('loadedmetadata', () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    const dataURL = canvas.toDataURL();
+                    disp.innerHTML = '';
+                    disp.style.backgroundImage = `url(${dataURL})`;
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    function sendPicture() {
+        const dataURL = disp.style.backgroundImage.replace(/^url\("(.+)"\)$/, '$1');
+        disp.innerHTML = waitingText;
+        fetch('https://api.randomuser.me/api/')
+        .then((response) => response.blob())
+        .then((blob) => {
+            const objectURL = URL.createObjectURL(blob);
+            disp.innerHTML = '';
+            disp.style.backgroundImage = `url(${objectURL})`;
+        })
+        .catch((error) => {
+            disp.innerHTML = `Error: ${error}`;
+        });
+    }
+</script>
+
+
+</body>
+</html>

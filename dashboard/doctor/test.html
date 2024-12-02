@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Include jQuery library and your JavaScript code -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#map {
+  height: 400px;
+}
+
+</style>
+</head>
+<body>
+    
+<!-- Button to open the modal -->
+<button id="openMapButton">Open Map</button>
+
+<!-- Modal -->
+<div id="mapModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="map"></div>
+  </div>
+</div>
+
+   
+<script>
+    // Function to open the modal
+function openModal() {
+  var modal = document.getElementById('mapModal');
+  modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+  var modal = document.getElementById('mapModal');
+  modal.style.display = 'none';
+}
+
+// Function to initialize Google Maps
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 0, lng: 0 },
+    zoom: 15
+  });
+
+  // Fetch coordinates from the location table in the database and plot them on the map
+  // Replace 'fetch_coordinates.php' with the appropriate server-side script
+  $.ajax({
+    url: 'https://health.aiiot.website/api/main.php/',
+    type: 'GET',
+    data:{
+        theUser: 'jsmith',
+        action:'fetchCoordinates',
+    },
+    success: function(response) {
+      console.log("RESPONSE: ",response);
+      var coordinates = response.coordinates;
+      console.log("COORDINATES: ", coordinates);
+      var marker;
+      for (var i = 0; i < coordinates.length; i++) {
+        var latLng = new google.maps.LatLng(coordinates[i].latitude, coordinates[i].longitude);
+        marker = new google.maps.Marker({
+          position: latLng,
+          map: map
+        });
+      }
+      if (marker) {
+        map.setCenter(marker.getPosition());
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error('Request failed with status:', status);
+      // Handle the error case appropriately
+    }
+  });
+}
+
+// Event listener for the Open Map button
+document.getElementById('openMapButton').addEventListener('click', function() {
+  openModal();
+  // Load the Google Maps API dynamically
+  var script = document.createElement('script');
+  script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBJuXxmGpIbBHS8JFeuD4DRVm1I4EaOqzI&callback=initMap';
+  document.body.appendChild(script);
+});
+
+// Event listener for the Close button in the modal
+document.getElementsByClassName('close')[0].addEventListener('click', function() {
+  closeModal();
+});
+
+</script>
+
+
+
+<script>
+// Function to save the location to the database
+function saveLocationToDatabase(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var user = sessionStorage.getItem('user');
+  var coordinates = { latitude: latitude, longitude: longitude };
+  console.log(coordinates);
+  $.ajax({
+    url: 'https://health.aiiot.website/api/main.php/',
+    type: 'POST',
+    data: { target: 'jsmith', coordinates: JSON.stringify(coordinates) },
+    success: function(response) {
+      console.log(response);
+    },
+    error: function(xhr, status, error) {
+      console.error('Failed to save location:', error);
+    }
+  });
+}
+
+// Function to start monitoring location changes
+function startMonitoringLocation() {
+  if (navigator.geolocation) {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    var watchId = navigator.geolocation.watchPosition(saveLocationToDatabase, function(error) {
+      console.error('Error occurred while monitoring location:', error);
+    }, options);
+    return watchId;
+  } else {
+    console.error('Geolocation is not supported by this browser.');
+    return null;
+  }
+}
+
+// Function to stop monitoring location changes
+function stopMonitoringLocation(watchId) {
+  if (navigator.geolocation && watchId) {
+    navigator.geolocation.clearWatch(watchId);
+  }
+}
+
+// Call the startMonitoringLocation function to begin monitoring location changes
+var locationWatcherId = startMonitoringLocation();
+
+</script>
+
+
+
+</body>
+</html>

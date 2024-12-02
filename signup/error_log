@@ -1,0 +1,137 @@
+[19-Dec-2022 08:53:23 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2005): Unknown MySQL server host 'localhost:3306' (-2) in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[19-Dec-2022 08:53:39 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2005): Unknown MySQL server host 'localhost:3306' (-2) in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[20-Dec-2022 09:33:15 America/New_York] PHP Fatal error:  Only variables can be passed by reference in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 33
+[20-Dec-2022 09:36:34 America/New_York] PHP Fatal error:  Only variables can be passed by reference in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 33
+[20-Dec-2022 09:38:20 America/New_York] PHP Fatal error:  Only variables can be passed by reference in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 33
+[20-Dec-2022 09:41:50 America/New_York] PHP Fatal error:  Only variables can be passed by reference in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 33
+[20-Dec-2022 09:56:09 America/New_York] PHP Fatal error:  Only variables can be passed by reference in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 33
+[13-Feb-2023 08:11:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:11:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:11:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[13-Feb-2023 08:12:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:12:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:12:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[13-Feb-2023 08:12:40 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:12:40 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:12:40 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[13-Feb-2023 08:13:03 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:13:03 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:13:03 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[13-Feb-2023 08:13:05 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:13:05 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:13:05 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[13-Feb-2023 08:22:27 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:22:27 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:22:27 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[13-Feb-2023 08:22:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[13-Feb-2023 08:22:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[13-Feb-2023 08:22:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:13 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:13 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:13 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:26 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:26 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:26 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:28 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:28 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:28 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:31 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:32 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:32 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:32 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:32 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:32 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:32 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:34 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:34 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:34 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:34 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:34 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:34 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:36 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:37 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:38 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:38 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:38 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:38 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:38 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:38 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:50 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:50 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:50 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:51 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:52 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:53 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:59 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:59 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:59 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[29-Mar-2023 03:25:59 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 14
+[29-Mar-2023 03:25:59 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 21
+[29-Mar-2023 03:25:59 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 22
+[25-May-2023 05:45:24 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/aiiovdft/health.aiiot.center/includes/conn.php on line 10
+[16-Feb-2024 13:14:53 America/New_York] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/aiiovdft/health.aiiot.center/signup/signup.php:23
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/signup/signup.php(23): mysqli_query()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 23
+[16-Feb-2024 13:15:03 America/New_York] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/aiiovdft/health.aiiot.center/signup/signup.php:23
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/signup/signup.php(23): mysqli_query()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 23
+[16-Feb-2024 13:15:55 America/New_York] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/aiiovdft/health.aiiot.center/signup/signup.php:23
+Stack trace:
+#0 /home/aiiovdft/health.aiiot.center/signup/signup.php(23): mysqli_query()
+#1 {main}
+  thrown in /home/aiiovdft/health.aiiot.center/signup/signup.php on line 23

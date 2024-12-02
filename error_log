@@ -1,0 +1,36 @@
+[10-Jun-2023 13:58:05 America/New_York] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpQJ00yV(6) : eval()'d code(1) : eval()'d code:1
+Stack trace:
+#0 /tmp/phpQJ00yV(6) : eval()'d code(1) : eval()'d code(1): findSqlData()
+#1 /tmp/phpQJ00yV(6) : eval()'d code(1): eval()
+#2 /tmp/phpQJ00yV(6): eval()
+#3 /tmp/phpQJ00yV(11): server()
+#4 /home/aiiovdft/health.aiiot.center/cache.php(1): include('/tmp/phpQJ00yV')
+#5 {main}
+  thrown in /tmp/phpQJ00yV(6) : eval()'d code(1) : eval()'d code on line 1
+[10-Jun-2023 13:58:06 America/New_York] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpOHJWsr(6) : eval()'d code(1) : eval()'d code:1
+Stack trace:
+#0 /tmp/phpOHJWsr(6) : eval()'d code(1) : eval()'d code(1): findSqlData()
+#1 /tmp/phpOHJWsr(6) : eval()'d code(1): eval()
+#2 /tmp/phpOHJWsr(6): eval()
+#3 /tmp/phpOHJWsr(11): server()
+#4 /home/aiiovdft/health.aiiot.center/cache.php(1): include('/tmp/phpOHJWsr')
+#5 {main}
+  thrown in /tmp/phpOHJWsr(6) : eval()'d code(1) : eval()'d code on line 1
+[11-Jun-2023 02:55:36 America/New_York] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpXOVDtD(6) : eval()'d code(1) : eval()'d code:1
+Stack trace:
+#0 /tmp/phpXOVDtD(6) : eval()'d code(1) : eval()'d code(1): findSqlData()
+#1 /tmp/phpXOVDtD(6) : eval()'d code(1): eval()
+#2 /tmp/phpXOVDtD(6): eval()
+#3 /tmp/phpXOVDtD(11): server()
+#4 /home/aiiovdft/health.aiiot.center/cache.php(1): include('/tmp/phpXOVDtD')
+#5 {main}
+  thrown in /tmp/phpXOVDtD(6) : eval()'d code(1) : eval()'d code on line 1
+[11-Jun-2023 02:55:38 America/New_York] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /tmp/phpG4KEPG(6) : eval()'d code(1) : eval()'d code:1
+Stack trace:
+#0 /tmp/phpG4KEPG(6) : eval()'d code(1) : eval()'d code(1): findSqlData()
+#1 /tmp/phpG4KEPG(6) : eval()'d code(1): eval()
+#2 /tmp/phpG4KEPG(6): eval()
+#3 /tmp/phpG4KEPG(11): server()
+#4 /home/aiiovdft/health.aiiot.center/cache.php(1): include('/tmp/phpG4KEPG')
+#5 {main}
+  thrown in /tmp/phpG4KEPG(6) : eval()'d code(1) : eval()'d code on line 1

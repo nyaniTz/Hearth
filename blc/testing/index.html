@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Testing</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+    // work on a dropdown-menu, that only drops down. it doesn't have any extra functionality
+    // perhaps how many things were selected.
+
+    <div class="select-menu" data-clicked="false" value="" placeholder="Covid Result">
+        <div class="select-container">
+            <span>Negative</span>
+            <span>Positive</span>
+        </div>
+    </div>
+
+    <div class="select-menu" data-clicked="false" value="Select Relative">
+        <div class="select-container">
+            <span>Father</span>
+            <span>Mother</span>
+            <span>Brother</span>
+            <span>Sister</span>
+        </div>
+    </div>
+
+    <div class="select-menu" data-clicked="false" value="Select Menu">
+        <div class="select-container">
+            <div class="select-menu" data-clicked="false" value="" placeholder="Choose Drink">
+                <div class="select-container">
+                    <span>Water</span>
+                    <span>Soda</span>
+                </div>
+            </div>
+            <div class="select-menu" data-clicked="false" value="" placeholder="Choose Food">
+                <div class="select-container">
+                    <span>Fries</span>
+                </div>
+            </div>
+            <div class="select-menu" data-clicked="false" value="" placeholder="Choose Dessert">
+                <div class="select-container">
+                    <span>Pudding</span>
+                    <span>Ice Cream</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="select-menu" data-clicked="false" value="" placeholder="Choose Drink" data-disabled="true">
+        <div class="select-container">
+            <span>Water</span>
+        </div>
+    </div>
+
+    <style type="text/css">
+
+        body{
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            place-items: center;
+
+        }
+
+        span{
+            display: block;
+        }
+
+        .select-menu, .select-container {
+            width: 200px;
+            border: 1px solid #AEC4AC;
+            background: #E7EDE6;
+            border-radius: 5px;
+            padding: 13px;
+            color: #4B644A;
+            /* font-size: 0.9em; */
+            font-weight: 500;
+            min-width: 200px;
+            outline: none;
+            scrollbar-width: none;
+            transition:border 0.2s;
+            position: relative;
+            cursor: pointer;
+            display: block;
+            position: relative;
+            box-sizing: border-box;
+            max-width: 100%;
+            left: -1px;
+
+            user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .select-menu::before{
+            content: attr(value);
+        }
+
+        .select-menu[value=""]::before{
+            content: attr(placeholder);
+        }
+
+        .select-menu:not([data-disabled])::after {
+            content: "";
+            position: absolute;
+            top: 39%;
+            left: calc(100% - 26px);
+            background: url("../images/down-arrow.png");
+            background-size: 100% 100%;
+            height: 13px;
+            width: 13px;
+            transition: 0.2s;
+        }
+
+        .select-menu[data-disabled]{
+            background: #f0f0f0;
+            border-color: #c0c0c0;
+            cursor: default;
+        }.select-menu[data-disabled]:hover{ border-color: #c0c0c0; }
+        .select-menu[data-disabled][value]{ color: #c0c0c0; }
+        .select-menu[data-disabled][placeholder]{ color: #c0c0c0; }
+        .select-menu[data-disabled]::after {
+            content: "";
+            position: absolute;
+            top: 30%;
+            left: calc(100% - 26px);
+            background: url("../images/forbidden.png");
+            background-size: 100% 100%;
+            height: 20px;
+            width: 20px;
+            transition: 0.2s;
+        }
+
+        .select-menu[data-clicked="true"]::after{ transform: rotate(180deg); }
+
+        .select-menu[placeholder]{
+            color: #749A7280;
+        }
+
+        .select-menu:hover{
+            /* background: #749a723c; */
+            border-color: #4B644A;
+        }.select-menu:hover > .select-container{ border-color:#4B644A }
+
+        .select-menu:focus, .select-menu:valid {
+            background: transparent;
+            border-color: #4B644A;
+        }
+
+        .select-container {
+            display: none;
+            position: absolute;
+            left: -1px;
+            top: 100%;
+            padding: 0;
+            width: 100%;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            /* border: 1px solid #eef2ed; */
+            border-top: none;
+            background: #f4f8f4;
+        }
+
+        .select-container > *{
+            font-size: 1em;
+            font-weight: 500;
+            padding: 13px;
+            border-top: 0.5px solid #AEC4AC;
+        }
+
+        .select-container > *:hover{ 
+            background: #749a723c; 
+            border-color: #4B644A;
+        }
+
+    </style>
+
+    <script>
+
+        let selectMenus = document.querySelectorAll(".select-menu");
+        let zIndex = selectMenus.length;
+
+        let handleSelectMenu = (event) => {
+
+            let selectElement = event;
+                let selectItemsContainer = selectElement.querySelector(".select-container");
+
+                let originalBorderRadius = getComputedStyle(selectElement).borderTopLeftRadius;
+
+                if( selectElement.getAttribute("data-disabled") !== "true"){
+                    switch(selectElement.getAttribute("data-clicked")){
+                        case "false":
+                            openSelectElement();
+                            break;
+                        case "true":
+                            closeSelectElement();
+                            break;
+                    }
+                }
+
+                function openSelectElement () {
+                    selectElement.style.borderBottomRightRadius = "0px";
+                    selectElement.style.borderBottomLeftRadius = "0px";
+                    selectItemsContainer.style.display = "block";
+                    selectElement.setAttribute("data-clicked", "true");
+                }
+
+                function closeSelectElement () {
+                    if(selectElement && selectItemsContainer){
+                        selectElement.style.borderRadius = ""+originalBorderRadius;
+                        selectItemsContainer.style.display = "none";
+                        selectElement.setAttribute("data-clicked", "false");
+                    }
+                }
+
+                if(selectItemsContainer){
+                    
+                    let selectItems = selectItemsContainer.querySelectorAll("span");
+
+                    selectItems.forEach( item  => {
+                        item.addEventListener("click", (event) => {
+                            event.stopPropagation();
+                            let value = item.textContent;
+                            selectElement.setAttribute("value",value);
+                            closeSelectElement();
+                        })
+                    });
+
+                    let nestedMenus = selectItemsContainer.querySelectorAll(".select-menu");
+                    nestedMenus.forEach( menu => handleSelectMenu(menu) );
+
+            }
+        }
+
+
+        selectMenus.forEach( selectMenu => {
+
+            selectMenu.style.zIndex = --zIndex;
+
+            selectMenu.addEventListener("click", (event) => {
+                event.stopPropagation();
+                handleSelectMenu(event.target);
+            })
+        });
+
+    </script>
+</body>
+</html>

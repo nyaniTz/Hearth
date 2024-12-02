@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProUltraLight.woff2') format('woff2'),
+         url('fonts/SofiaProUltraLight.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProExtraLight.woff2') format('woff2'),
+         url('fonts/SofiaProExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProLight.woff2') format('woff2'),
+         url('fonts/SofiaProLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProRegular.woff2') format('woff2'),
+         url('fonts/SofiaProRegular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProMedium.woff2') format('woff2'),
+         url('fonts/SofiaProMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProSemiBold.woff2') format('woff2'),
+         url('fonts/SofiaProSemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProBold.woff2') format('woff2'),
+         url('fonts/SofiaProBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofiapro';
+    src: url('fonts/SofiaProBlack.woff2') format('woff2'),
+         url('fonts/SofiaProBlack.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+* {
+    font-family: 'sofiapro';
+    margin: 0 0;
+    padding: 0 0;
+    letter-spacing: -0.2px;
+    line-height: 1.4em;
+}
+
+.initial-loader{
+    place-self: center;
+    padding: 50px 0px;
+}
+
+.display-none { display: none;}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.close-pop-up{
+    display: grid;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 26px;
+    width: 26px;
+    background-image: url("../images/close.png");
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.close-pop-up:hover{ transform: scale(1.2); }
+
+
+*::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: transparent;
+}
+
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3); */
+	background-color: var(--primary-color);
+}
+
+.alert-box{
+    padding: 1em 2em;
+    background: var(--secondary-color);
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transition: 1s all;
+    transform: translate(-50%, 0px);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+    cursor: default;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.select-none {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.report-link-view{ padding: 0 0 !important; }
+.share-link-container{ grid-gap: 20px;}
+.action-icon{ cursor: pointer; }
+
+.department-logo {
+    width: 200px;
+    place-self: center;
+}
+
+.extra-small-font.pop-up-title{ margin-bottom: 10px;}
+
+orange {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+.local-report-list-header{
+    width: 100%;
+    box-sizing: border-box;
+    grid-template-columns: 1fr auto;
+    padding-right: 20px;
+    display: grid;
+}
+
+.add-patient-report{
+    display: grid;
+    background: var(--primary-color);
+    grid-template-columns: 1fr auto;
+    grid-gap: 5px;
+    place-items: center;
+    padding: 10px 15px;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    border-radius: 30px;
+    place-self: center;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.2s;
+    cursor: pointer;
+    color: white;
+}
+.add-patient-report:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+.add-patient-report > img{ 
+    width: 0.7em; 
+    margin-top: -1px;
+    margin-left: 3px;;
+}
