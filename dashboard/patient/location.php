@@ -127,6 +127,15 @@ if(isset($_GET['ip_address']))
                     <span class="links_name">Emotion Checker</span>
 
                 </li>
+
+
+
+                <li class="emotion-bot content">
+                    <i class="bx bxs-bot "></i>
+                    <span class="links_name">Therapy chartbot</span>
+
+                </li>
+
                 <li class="location content">
                     <i class="fa-solid fa-location-dot cart two "></i>
                    <a href="location.php"><span class="links_name">Patient Location</span></a> 

@@ -26,7 +26,7 @@ const apiKey = "671df62777b746a780050a726b5af2ea";
 
     $.ajax({
       type: "POST",
-      url: "http://localhost/health/dashboard/doctor/patient_data.php",
+      url: "https://health.aiiot.center/health/dashboard/doctor/patient_data.php",
       data: { searchName: searchName },
       crossDomain: true,
       dataType: "json",

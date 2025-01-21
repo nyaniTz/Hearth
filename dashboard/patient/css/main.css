@@ -275,22 +275,25 @@ nav .profile-details i{
   justify-content: space-around;
 }
 
-.number-boxes .box{
-  /* padding-left: 20px; */
+.number-boxes {
+  margin-left: 270px; /* Set left margin to avoid overlapping with the sidebar */
+  padding: 20px;
   display: flex;
-  /*justify-content: space-between;
-   width: calc(100% / 4 - 15px); */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style for individual number boxes */
+.number-boxes .box {
+  width: calc(33.333% - 20px); /* Adjust width of boxes */
+  margin: 10px;
   background: #ffffff;
-  /* padding: 15px 28px; */
-  margin: 14px 53px;
   border-radius: 21px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  /* align-content: center;
-  flex-wrap: nowrap; */
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: stretch;
-  justify-content: space-around;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
