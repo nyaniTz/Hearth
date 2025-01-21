@@ -275,6 +275,7 @@ nav .profile-details i{
   justify-content: space-around;
 }
 
+/* Base styles for .number-boxes */
 .number-boxes {
   margin-left: 270px; /* Set left margin to avoid overlapping with the sidebar */
   padding: 20px;
@@ -295,6 +296,31 @@ nav .profile-details i{
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* Media query for smaller screens */
+@media (max-width: 1024px) {
+  .number-boxes {
+    margin-left: 200px; /* Adjust left margin for smaller screens */
+  }
+
+  .number-boxes .box {
+    width: calc(50% - 20px); /* Adjust width for 2 columns */
+  }
+}
+
+/* Media query for even smaller screens (e.g., tablets) */
+@media (max-width: 768px) {
+  .number-boxes {
+    margin-left: 0; /* No left margin for small screens */
+    padding: 10px;
+  }
+
+  .number-boxes .box {
+    width: 100%; /* Full width for each box */
+    margin: 10px 0; /* Adjust margin for single column */
+  }
+}
+
 
 
 .overview-boxes .box-topic{
