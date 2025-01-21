@@ -275,52 +275,23 @@ nav .profile-details i{
   justify-content: space-around;
 }
 
-/* Base styles for .number-boxes */
-.number-boxes {
-  margin-left: 270px; /* Set left margin to avoid overlapping with the sidebar */
-  padding: 20px;
+.number-boxes .box{
+  /* padding-left: 20px; */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* Style for individual number boxes */
-.number-boxes .box {
-  width: calc(33.333% - 20px); /* Adjust width of boxes */
-  margin: 10px;
+  /*justify-content: space-between;
+   width: calc(100% / 4 - 15px); */
   background: #ffffff;
+  /* padding: 15px 28px; */
+  margin: 14px 53px;
   border-radius: 21px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* align-content: center;
+  flex-wrap: nowrap; */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: space-around;
 }
-
-/* Media query for smaller screens */
-@media (max-width: 1024px) {
-  .number-boxes {
-    margin-left: 200px; /* Adjust left margin for smaller screens */
-  }
-
-  .number-boxes .box {
-    width: calc(50% - 20px); /* Adjust width for 2 columns */
-  }
-}
-
-/* Media query for even smaller screens (e.g., tablets) */
-@media (max-width: 768px) {
-  .number-boxes {
-    margin-left: 0; /* No left margin for small screens */
-    padding: 10px;
-  }
-
-  .number-boxes .box {
-    width: 100%; /* Full width for each box */
-    margin: 10px 0; /* Adjust margin for single column */
-  }
-}
-
 
 
 .overview-boxes .box-topic{
@@ -1542,6 +1513,7 @@ flex-direction: row;
 .helpline.dashboard.active {
   top: 64px;
   display: block;
+  margin-left: 34%;
 }
 .helpline.dashboard {
   display: none;
